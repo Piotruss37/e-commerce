@@ -35,20 +35,31 @@ const retrieveStoredToken = () => {
 			tokenDuration = 0
 			return null
 		}
-		tokenMain=token
+		tokenMain = token
 	}
 
 	return tokenMain
 }
 
 const AuthContextProvider = (props: { children: React.ReactNode }) => {
-	let duration = getTokenDuration()
-	const defaultState = {
-		idToken: retrieveStoredToken()!,
-		expiresIn: duration!.toString(),
-		localId: '',
-		email: '',
+	let defaultState
+	if (typeof window !== 'undefined') {
+		let duration = getTokenDuration()
+		 defaultState = {
+			idToken: retrieveStoredToken()!,
+			expiresIn: duration!.toString(),
+			localId: '',
+			email: '',
+		}
+	} else {
+		 defaultState = {
+			idToken: '',
+			expiresIn: '',
+			localId: '',
+			email: '',
+		}
 	}
+
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const { sendRequest: getUserData } = useHttp()
 
