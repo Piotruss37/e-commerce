@@ -5,7 +5,10 @@ import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 
 const CartContextProvider = (props: { children: React.ReactNode }) => {
-	const cartSt = localStorage.getItem('cart')
+	let cartSt
+	if (typeof window !== 'undefined') {
+		cartSt = localStorage.getItem('cart')
+	}
 	const cartFromStorage = JSON.parse(cartSt!)
 	const [cart, setCart] = useState<ProductItem[]>(cartFromStorage)
 	let totalAmount = 0
