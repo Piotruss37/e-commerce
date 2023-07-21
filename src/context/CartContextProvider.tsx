@@ -12,17 +12,19 @@ const CartContextProvider = (props: { children: React.ReactNode }) => {
 
 	let productsQuantity = 0
 
-	if (cart) {
-		cart.forEach(product => {
-			productsQuantity += product.quantity
-		})
+	if (typeof window !== 'undefined') {
+		if (cart) {
+			cart.forEach(product => {
+				productsQuantity += product.quantity
+			})
 
-		cart.forEach(product => {
-			const { price, quantity } = product
-			totalAmount += +price * quantity
-		})
-	} else {
-		localStorage.setItem('cart', JSON.stringify([]))
+			cart.forEach(product => {
+				const { price, quantity } = product
+				totalAmount += +price * quantity
+			})
+		} else {
+			localStorage.setItem('cart', JSON.stringify([]))
+		}
 	}
 
 	const removeAllProducts = () => {
