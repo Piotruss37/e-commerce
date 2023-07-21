@@ -1,0 +1,20 @@
+.quantity {
+	margin-bottom: 1em;
+}
+.input {
+	width: 40px;
+	text-align: center;
+	height: 30px;
+	border: none;
+	border-top: 1px solid #7a7979;
+	border-bottom: 1px solid #7a7979;
+}
+
+.button {
+	background-color: transparent;
+	border: 1px solid #888888;
+	width: 30px;
+	font-weight: bold;
+	height: 30px;
+	transition: color 0.3s, background-color.3s;
+}

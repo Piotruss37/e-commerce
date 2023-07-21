@@ -1,0 +1,8 @@
+.links {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.desc{
+    margin-bottom: 2em;
+}

@@ -1,0 +1,48 @@
+.nav {
+	display: flex;
+	min-height: 150px;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.headIcons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.icons {
+	align-items: center;
+	position: absolute;
+	display: none;
+	right: 40px;
+	top: 40%;
+}
+.icons svg {
+	margin-right: 1.5em;
+}
+.heading {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-weight: normal;
+	margin-top: 0.5em;
+}
+
+.cartButton {
+	display: flex;
+	align-items: center;
+	position: relative;
+	width: 200px;
+}
+
+.totalAmount {
+	margin-left: -0.5em;
+}
+
+@media (min-width: 768px) {
+	.icons {
+		display: flex;
+	}
+	.nav {
+		min-height: 190px;
+	}
+}

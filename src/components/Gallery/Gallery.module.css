@@ -1,0 +1,40 @@
+.image {
+	width: 100%;
+	max-width: 800px;
+	height: 300px;
+	object-fit: cover;
+}
+.imageSmall {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	margin: 0.2em;
+	cursor: pointer;
+}
+.images {
+	display: flex;
+}
+.photos {
+	margin-top: 2em;
+}
+
+@media (min-width: 992px) {
+	.photos {
+		margin-top: 0;
+	}
+}
+@media (min-width: 992px) {
+	.image {
+		height: 400px;
+		min-width: 400px;
+	}
+	.imageSmall {
+		width: 150px;
+	}
+	.imageSmall:last-of-type {
+		margin-right: 0;
+	}
+	.photos {
+		margin-left: -10em;
+	}
+}

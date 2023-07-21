@@ -1,0 +1,16 @@
+.section {
+	padding: 0 1em;
+}
+.heading {
+	text-transform: uppercase;
+	font-weight: normal;
+	text-align: center;
+	font-size: 2.5rem;
+	margin-top: 1em;
+}
+
+@media (min-width: 992px) {
+	.section {
+		margin-top: 2em;
+	}
+}
