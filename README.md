@@ -16,14 +16,15 @@ https://e-commerce-nk9z3bva0-piotruss37.vercel.app/
 - User is being able to create an account
 - Form validation (Custom hook)
 - Sending HTTP request (Custom http hook)
-- Swipe left and right (via react-tinder-card)
-- Profile data update requests
+- Fully functional cart
+- Increase/decrease product amount
 - Managing token expiration 
 
 ## 🛠 Tech stack used for the project
 
 - React
 - Typescript
+- Next.js 13+
 - CSS Modules
 - Firebase
 - Webpack
