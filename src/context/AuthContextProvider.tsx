@@ -11,37 +11,41 @@ interface UserData {
 }
 
 function getTokenDuration() {
-	const storedExpirationDate = localStorage.getItem('expiration')
-	
-
-	if (!storedExpirationDate) {
-		return 0
+	let duration
+	if (typeof window !== 'undefined') {
+		const storedExpirationDate = localStorage.getItem('expiration')
+		if (!storedExpirationDate) {
+			return 0
+		}
+		const expirationDate = new Date(storedExpirationDate!)
+		const now = new Date()
+		duration = expirationDate.getTime() - now.getTime()
 	}
-	const expirationDate = new Date(storedExpirationDate!)
-	const now = new Date()
-	const duration = expirationDate.getTime() - now.getTime()
 	return duration
 }
 const retrieveStoredToken = () => {
-	const token = localStorage.getItem('token')
-
-	if (!token) {
-		return null
+	let tokenMain
+	if (typeof window !== 'undefined') {
+		const token = localStorage.getItem('token')
+		if (!token) {
+			return null
+		}
+		let tokenDuration = getTokenDuration()
+		if (tokenDuration! < 0) {
+			tokenDuration = 0
+			return null
+		}
+		tokenMain=token
 	}
 
-	let tokenDuration = getTokenDuration()
-	if (tokenDuration < 0) {
-		tokenDuration = 0
-		return null
-	}
-	return token
+	return tokenMain
 }
 
 const AuthContextProvider = (props: { children: React.ReactNode }) => {
 	let duration = getTokenDuration()
 	const defaultState = {
 		idToken: retrieveStoredToken()!,
-		expiresIn: duration.toString(),
+		expiresIn: duration!.toString(),
 		localId: '',
 		email: '',
 	}
