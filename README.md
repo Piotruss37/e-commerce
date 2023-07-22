@@ -14,6 +14,7 @@ https://e-commerce-nk9z3bva0-piotruss37.vercel.app/
 ## Features
 
 - User is being able to create an account
+- File based routing
 - Form validation (Custom hook)
 - Sending HTTP request (Custom http hook)
 - Fully functional cart
