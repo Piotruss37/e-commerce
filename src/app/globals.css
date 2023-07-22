@@ -167,6 +167,9 @@ table {
 	text-align: center;
 	display: block;
 }
+.order-total{
+	padding: 1em 0.5em;
+}
 .login {
 	background-color: rgb(65, 65, 65);
 	color: #fff;

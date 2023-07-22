@@ -34,17 +34,16 @@ const AccountOrders = () => {
 	}, [databaseUrl, sendRequest])
 
 	const carts = data.map(order => order.cart)
-
-	return (
-		<div className='orders'>
-			{carts.map(cart => {
-				const key = Math.random().toString()
-                return (
-                    <AccountOrderItem key={key} cart={cart}></AccountOrderItem>
-                )
-			})}
-		</div>
-	)
+	let content
+	if (carts.length === 0) {
+		content=<p className='centered'>You dont have any orders</p>
+	} else {
+		content = carts.map((cart, index) => {
+			const key = Math.random().toString()
+			return <AccountOrderItem orderNumber={index} key={key} cart={cart}></AccountOrderItem>
+		})
+	}
+	return <div className='orders'>{content}</div>
 }
 
 export default AccountOrders
